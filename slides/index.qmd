@@ -1,0 +1,309 @@
+---
+title: "Lupa Digital"
+subtitle: "Arquivo.pt Awards 2025"
+author:
+  - name: "Hugo Veríssimo"
+    affiliation: "124348"
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: ua.png
+    css: mystyle.css
+    theme: serif
+    transition: slide
+echo: true
+---
+
+```{r setup, include = FALSE}
+# packages
+library(dplyr)
+library(knitr)
+library(xtable)
+library(reticulate)
+```
+
+## NOTAS
+
+meter justify
+
+meter footer com o link para pasta ou ficheiro
+
+rever esteticas todas, n estou a ligar a isso agora, so conteudo
+
+
+
+## Lupa Digital {.justify}
+
+Lupa Digital is an initiative that applies AI and data mining to large-scale journalistic content, exploring the evolving news landscape through the lens of metajournalism.
+
+- Identify and classify news articles across a wide range of domains.
+
+- Extract relevant information and preprocess data to support analysis.
+
+- Detect trends and reveal patterns across topics, sources, and time periods.
+
+> Transform large volumes of archived news into structured, analyzable datasets, enabling a deeper understanding of entities, events and themes.
+
+# Data Pipeline <br>& Methodology
+
+## News URL Harvesting {.justify}
+
+```{=html}
+<figure style="text-align: center;">
+    <img src="diagram (1).png" alt="api requests" style="width: 100%; border: 2px solid #444; padding: 10px;">
+</figure>
+```
+
+From a source such as [www.rtp.pt](https://www.rtp.pt), retrieve archived news urls:
+
+[https://arquivo.pt/wayback/20201013181949/https://www.rtp.pt/noticias/desporto/cristiano-ronaldo-com-covid-19_v1266654](#)
+
+## Data Extraction and Mining {.justify}
+
+```{=html}
+<figure style="text-align: center;">
+    <img src="diagram (2).png" alt="api requests" style="width: 100%; border: 2px solid #444; padding: 10px">
+</figure>
+```
+
+In order to make the process more robust and efficient...
+
+## Data Extraction and Mining {.justify}
+
+the news were processed in chuncks of 10000 and checkpoints were saved??
+
+there chucks were processed:
+
+- using `PySpark` to leverage parellism?
+
+- usnig `BeautifulSoup` for web scrapping
+
+- using `BloomFilter` to avoid duplicated news
+
+- using a ML Model for document classification
+
+- using `TextBlob` and `Vader` for sentiment analysis
+
+- using `spacy` for lemmatization/tokenization and NER for topic extraction
+
+- using probabilistic counters for topic counting
+
+## Raw Data Example ?
+
+asdhashdaiushdia
+
+teimstamp:
+
+topics:
+
+...
+
+## Topic Standardization {.justify}
+
+```{python, echo=FALSE}
+print("""Number of unique topics:  1457234
++-------------------------+
+|value                    |
++-------------------------+
+|P2 Ípsilon Ímpar Fugas P3|
+|laboratório              |
+|galp                     |
+|Galp                     |
+|O Banco de Portugal      |
+|Saúde   Covid-19   COVID |
++-------------------------+""")
+```
+
+Problems:
+
+- different forms of writting (lower or uppercase)
+
+- multiple topics per "topic"
+
+- artigos definidos a preceder o nome
+
+## Topic Standardization {.justify}
+
+Idea: Map "topic" to a list corresponding to it
+
+```{.python code-line-numbers="1-5|8-23|26-39|42-58|61-64"}
+# split topics with more then 2 spaces
+df = df.withColumn(
+  "tokens",
+  F.split(F.col("value"), " {2,}")
+)
+
+
+# standartize topics using mapping
+# either using a portuguese dictionary (Natura Dictionary)
+dicitionary = spark.read.text("wordlist_utf8.txt")
+...
+word_map_broadcast = spark.sparkContext.broadcast(word_map)
+
+# or the most common representation ("galp" VS "Galp")
+tokens_df = tokens_df \
+            .withColumn("std_token", F.lower(F.col("token"))) \
+            .groupBy("std_token", "token") \
+            .agg(F.count("*").alias("count")) \
+            .withColumn("rank", F.row_number().over(window_spec)) \
+            .filter(F.col("rank") == 1) \
+            .orderBy("std_token") \
+            .select("std_token", "token", "count")
+...
+       
+            
+# split topics into possible subtopics
+def split_topics(token):
+  """
+  ex.:
+    Banco de Portugal -> banco, Portugal, Banco de Portugal
+    Leonor Pereira -> Leonor Pereira
+    laboratório -> laboratório
+    EDP Gás -> EDP, gás, EDP Gás
+  """
+  ...
+
+df = df.rdd.flatMap(
+    lambda row: [[row[0], split_topics(row[1])]]) \
+    .toDF(["topic", "token"]
+    
+    
+# remove invalid topics using regex
+def date_detection(token):
+    months = bool(re.search(r"\b(?:Jan|Fev|Abr|Mai|Jun|Jul|Ago|Set|Out|Nov|Dez)\b", token))
+    march = bool(re.search(r"\b(?:\d{1,2} Mar|Mar \d{2,4})\b", token))
+    months2 = bool(re.search(r"^(janeiro|fevereiro|março|abril|maio|junho|julho|agosto|setembro|outubro|novembro|dezembro)\b", token, flags=re.IGNORECASE))
+    dateD = bool(re.search(r"\b(Janeiro|Fevereiro|Março|Abril|Maio|Junho|Julho|Agosto|Setembro|Outubro|Novembro|Dezembro)[ ]?\d{2,4}\b", token, flags=re.IGNORECASE))
+    dateY = bool(re.search(r"\b\d{1,2}(?:\s+de)?\s+(janeiro|fevereiro|março|abril|maio|junho|julho|agosto|setembro|outubro|novembro|dezembro)\b", token, flags=re.IGNORECASE))
+    days = bool(re.search(r"\b(segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo)\b", token, flags=re.IGNORECASE))
+    hours = bool(re.search(r"\b\d{1,2}:\d{2}\b", token)) or bool(re.search(r"\b\d{1,2}h\d{2}\b", token))
+    minutes = bool(re.search(r"\b\d{1,2}m\d{2}\b", token))
+    return months or march or months2 or dateD or dateY or days or hours or minutes
+    
+def invalid_tokens_detection(token):
+    return date_detection(token) or ...
+
+df = df.rdd.flatMap(
+    lambda row: [(row[0], [token for token in row[1] if not invalid_tokens_detection(token)])])
+  
+    
+# among other transformations
+# ex.: duplicates, invalid characters, ...
+
+df.write.mode("overwrite").json("topics.json")
+```
+
+
+## Topic Standardization {.justify}
+
+```{python, echo=FALSE}
+print("""+-------------------------+--------------------------------------------------+
+|token                    |topic                                             |
++-------------------------+--------------------------------------------------+
+|laboratório              |[laboratório]                                     |
+|galp                     |[Galp]                                            |
+|Galp                     |[Galp]                                            |
+|O Banco de Portugal      |[banco, Portugal, Banco de Portugal]              |
+|Saúde   Covid-19   COVID |[Saúde, Covid-19, Covid, Saúde   Covid-19   COVID]|
+|José Mourinho            |[José Mourinho]                                   |
+|11 de janeiro            |[]                                                |\n""")
+```
+
+$\ $
+
+Problems:
+
+```{python, echo=FALSE}
+print("""|António Costa            |[António, costa, António Costa]                   |
+|CHEGA                    |[chega]                                           |
+|25 de abril              |[]                                                |
+|Revolução de 25 de abril |[Revolução, Revolução de 25 de abril]             |
++-------------------------+--------------------------------------------------+""")
+```
+
+## Data Post-processing {.justify}
+
+- Make sure there were no duplicated links
+
+- Corrected news distrubtion to be more "normal"
+
+- Map the new topics to replace the old ones
+
+```{=html}
+<figure style="text-align: center;">
+    <img src="diagram (3).png" alt="api requests" style="width: 100%; border: 2px solid #444; padding: 10px">
+</figure>
+```
+
+## Data Post-processing {.justify}
+
+also created a column of token list, lemmatized (no accents, no upper, nothing) and significant (more then ex.: >5 mentions in the new) for easy search later on
+
+```{python, echo=FALSE}
+print("""root
+ |-- timestamp: integer (nullable = true)
+ |-- source: string (nullable = true)
+ |-- archive: string (nullable = true)
+ |-- id: integer (nullable = true)
+ |-- probability: float (nullable = true)
+ |-- keywords: map (nullable = true)
+ |    |-- key: string
+ |    |-- value: integer (valueContainsNull = true)
+ |-- sentiment: double (nullable = true)
+ |-- significant_keywords: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+ """)
+```
+
+```{.python}
+df.repartition(8).write.mode("overwrite").parquet("data/news_processed")
+```
+
+# Results
+
+## Main Results {.justify}
+
+```{=html}
+<figure style="text-align: center;">
+    <img src="diagram.png" alt="api requests" style="width: 100%; border: 2px solid #444; padding: 10px">
+</figure>
+```
+
+## Dataset {.justify}
+
+```{=html}
+<figure style="text-align: center;">
+    <img src="results_dataset.png" alt="dataset screenshot" style="width: 85%;">
+</figure>
+```
+
+::: {style="text-align: center;"}
+available at [10.5281/zenodo.15231163](https://doi.org/10.5281/zenodo.15231163)
+:::
+
+## Web Application
+
+```{=html}
+<figure style="text-align: center;">
+    <img src="results_app.png" alt="app screenshot" style="width: 85%;">
+</figure>
+```
+
+::: {style="text-align: center;"}
+available at [lupa-digital.pt](https://lupa-digital.pt)
+:::
+
+
+## Web Application - Workflow
+
+```{=html}
+<figure style="text-align: center;">
+    <img src="app_workflow.png" alt="app workflow" style="width: 100%;">
+</figure>
+```
+
+
+
