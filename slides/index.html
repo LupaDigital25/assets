@@ -409,12 +409,6 @@ Hugo Veríssimo
 </div>
 
 </section>
-<section id="notas" class="slide level2">
-<h2>NOTAS</h2>
-<p>meter justify</p>
-<p>meter footer com o link para pasta ou ficheiro</p>
-<p>rever esteticas todas, n estou a ligar a isso agora, so conteudo</p>
-</section>
 <section id="lupa-digital" class="slide level2 justify">
 <h2>Lupa Digital</h2>
 <p>Lupa Digital is an initiative that applies AI and data mining to large-scale journalistic content, exploring the evolving news landscape through the lens of metajournalism.</p>
@@ -437,47 +431,30 @@ Hugo Veríssimo
 <figure style="text-align: center;">
     <img src="diagram (1).png" alt="api requests" style="width: 100%; border: 2px solid #444; padding: 10px;">
 </figure>
+<div class="footer">
+  github.com/LupaDigital25/data-extraction/blob/main/newsUrls.ipynb
+</div>
 </section>
-<section id="example-api-result" class="slide level2 justify">
-<h2>Example: API Result</h2>
-<p>From a source such as <a href="https://www.rtp.pt">www.rtp.pt</a>, retrieve archived news urls:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href=""></a>timestamp,url</span>
-<span id="cb1-2"><a href=""></a>20180322091927,https://www.rtp.pt/noticias/cultura/viseu-veste-fachadas-de-igrejas-com-desenhos-de-luz-para-celebrar-a-pascoa_n1065023</span>
-<span id="cb1-3"><a href=""></a>20220412001133,https://www.rtp.pt/noticias/cultura/visita-guiada-conta-historias-para-alem-do-que-muita-gente-sabe-em-coimbra_n1397856</span>
-<span id="cb1-4"><a href=""></a>20150724061305,http://www.rtp.pt/noticias/cultura/visita-guiada-pelas-obras-de-rui-sanches_v846013</span>
-<span id="cb1-5"><a href=""></a>20150827180844,http://www.rtp.pt/noticias/cultura/visitantes-da-festa-do-avante-vao-ser-recebidos-com-musica-de-orquestra-sinfonica_a854349</span>
-<span id="cb1-6"><a href=""></a>20190710182452,https://www.rtp.pt/noticias/cultura/visitantes-do-museu-dos-coches-sao-estrangeiros-com-mais-de-40-anos_n1159600</span>
-<span id="cb1-7"><a href=""></a>20200914194159,https://www.rtp.pt/noticias/cultura/visitantes-do-museu-e-parque-arqueologico-do-coa-duplicaram-em-agosto-deste-ano_n1258927</span>
-<span id="cb1-8"><a href=""></a>20200421030337,https://www.rtp.pt/noticias/cultura/visitar-museus-sem-sair-de-casa-em-dias-de-pandemia_v1221917</span>
-<span id="cb1-9"><a href=""></a>20150812054702,http://www.rtp.pt/noticias/cultura/visitas-a-monumentos-museus-e-palacios-rendem-cerca-de-um-milhao-de-euros_v850595</span>
-<span id="cb1-10"><a href=""></a>20160416215125,http://www.rtp.pt/noticias/cultura/visitas-as-galerias-romanas-ja-estao-esgotadas_v911728</span>
-<span id="cb1-11"><a href=""></a>20170327181559,https://www.rtp.pt/noticias/cultura/visitas-gratuitas-ao-teatro-nacional-sao-joao_v991499</span>
-<span id="cb1-12"><a href=""></a>20151007081054,http://www.rtp.pt/noticias/cultura/visitas-guiadas-aos-pacos-do-concelho-contam-novas-historias-da-lisboa-antiga_v863875</span>
-<span id="cb1-13"><a href=""></a>20190831185917,http://www.rtp.pt/noticias/cultura/visitas-guiadas-e-gratuitas-no-coliseu-do-porto_v970454</span>
-<span id="cb1-14"><a href=""></a>20200607225302,https://www.rtp.pt/noticias/cultura/visitas-guiadas-encenadas-regressam-a-aldeia-historica-de-castelo-rodrigo_n1234927</span>
-<span id="cb1-15"><a href=""></a>20220926183818,https://www.rtp.pt/noticias/cultura/visitas-virtuais-revelam-espacos-emblematicos-da-universidade-de-coimbra_n1435642</span>
-<span id="cb1-16"><a href=""></a>20170308191800,https://www.rtp.pt/noticias/cultura/visoes-de-alhambra-em-exposicao-no-museu-de-serralves_v987510</span>
-<span id="cb1-17"><a href=""></a>20190831185922,http://www.rtp.pt/noticias/cultura/visoes-de-julio-pomar-e-vitor-pomar-numa-exposicao-conjunta-em-lisboa_n930053</span>
-<span id="cb1-18"><a href=""></a>20190906021344,http://www.rtp.pt/noticias/cultura/visoes-de-julio-pomar-e-vitor-pomar-numa-exposicao-conjunta-em-lisboa_n930053</span>
-<span id="cb1-19"><a href=""></a>20191201214933,https://www.rtp.pt/noticias/cultura/vitalina-varela-de-pedro-costa-vence-premio-dos-caminhos-do-cinema-portugues_a1189245</span>
-<span id="cb1-20"><a href=""></a>20210129200211,https://www.rtp.pt/noticias/cultura/vitalina-varela-e-o-filme-portugues-na-corrida-aos-oscares_v1293573</span>
-<span id="cb1-21"><a href=""></a>20171114075240,https://www.rtp.pt/noticias/cultura/vitimas-de-assedio-tem-momento-muito-poderoso-para-dizer-basta-diz-atriz-rosario-dawson_n1039262</span>
-<span id="cb1-22"><a href=""></a>20171206095156,https://www.rtp.pt/noticias/cultura/ze-pedro-marcelo-quer-homenagem-inesquecivel-e-com-muito-publico_v1043993</span>
-<span id="cb1-23"><a href=""></a>20180721172036,https://www.rtp.pt/noticias/cultura/ze-pedro-recordado-com-espetaculo-de-coisas-bonitas_n1088575</span>
-<span id="cb1-24"><a href=""></a>20200805235517,https://www.rtp.pt/noticias/cultura/ze-pedro-rock-n-roll-documentario-sobre-guitarrista-dos-xutos-pontapes_a1248556</span>
-<span id="cb1-25"><a href=""></a>20200731182132,https://www.rtp.pt/noticias/cultura/ze-pedro-rock-n-roll-ja-esta-nos-cinemas_v1248844</span>
-<span id="cb1-26"><a href=""></a>20200806052707,https://www.rtp.pt/noticias/cultura/ze-pedro-rock-n-roll-realizador-diogo-varela-silva-falou-com-a-antena-1_a1248691</span>
-<span id="cb1-27"><a href=""></a>20201123234614,https://www.rtp.pt/noticias/cultura/ze-pedro-rock-nroll-vence-premio-de-melhor-longa-metragem-em-festival-nos-eua_n1277663</span>
-<span id="cb1-28"><a href=""></a>20171204002422,http://www.rtp.pt/noticias/cultura/ze-pedro-subiu-pela-ultima-vez-ao-palco-ha-menos-de-um-mes_v1043773</span>
-<span id="cb1-29"><a href=""></a>20170223040812,https://www.rtp.pt/noticias/cultura/zeca-afonso-companheiros-confessam-saudade-de-um-homem-generoso-e-valente_n984331</span>
-<span id="cb1-30"><a href=""></a>20170227001126,http://www.rtp.pt/noticias/cultura/zeca-afonso-e-as-palavras-que-quanto-mais-se-apartam-mais-se-ouve-o-seu-grito_v984949</span>
-<span id="cb1-31"><a href=""></a>20170227001310,http://www.rtp.pt/noticias/cultura/zeca-afonso-morreu-ha-30-anos_v984929</span>
-<span id="cb1-32"><a href=""></a>20240324193757,https://www.rtp.pt/noticias/cultura/zeca-afonso-o-esquerdista-apupado-em-grandola-que-ia-a-festa-do-avante_n984329</span>
-<span id="cb1-33"><a href=""></a>20240324193653,https://www.rtp.pt/noticias/cultura/zeca-afonso-um-artista-que-deixou-sementes-para-as-geracoes-seguintes_n984328</span>
-<span id="cb1-34"><a href=""></a>20170223040839,https://www.rtp.pt/noticias/cultura/zeca-afonso-um-mar-de-gente-e-de-cravos-vermelhos-marcou-funeral-ha-30-anos_n984332</span>
-<span id="cb1-35"><a href=""></a>20180516054359,https://www.rtp.pt/noticias/cultura/zonas-de-interesse-turistico-de-castelo-branco-cobertas-com-rede-wi-fi-gratuita_n1075883</span>
-<span id="cb1-36"><a href=""></a>20200413183202,https://www.rtp.pt/noticias/cultura/zoo-de-lourosa-continua-a-alimentar-500-aves-e-a-manter-80-habitats-sem-bilheteira_n1219867</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="example-api-request" class="slide level2 justify">
+<h2>Example: API Request</h2>
+<p>Sample query:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>https://arquivo.pt/wayback/cdx \</span>
+<span id="cb1-2"><a href=""></a>?url=www.rtp.pt/noticias/cultura* \</span>
+<span id="cb1-3"><a href=""></a>&amp;output=json \</span>
+<span id="cb1-4"><a href=""></a>&amp;filter==mime:text/html \</span>
+<span id="cb1-5"><a href=""></a>&amp;fields=url,timestamp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sample output:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>{"url": "https://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/companhia-nacional-abre-temporada-com-obra-inspirada-na-opera-de-henry-purcell_1033406", "timestamp": "20171016065533"}</span>
+<span id="cb2-2"><a href=""></a>{"url": "http://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/companhia-nacional-de-bailado-abre-temporada-com-peca-pedro-e-ines_865965", "timestamp": "20151014181241"}</span>
+<span id="cb2-3"><a href=""></a>{"url": "http://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/companhia-nacional-de-bailado-apresenta-quatro-pecas-de-coreografos-do-seculo-xx_893880", "timestamp": "20160206045955"}</span>
+<span id="cb2-4"><a href=""></a>{"url": "https://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/companhia-nacional-de-bailado-danca-com-akram-khan_982957", "timestamp": "20170214215117"}</span>
+<span id="cb2-5"><a href=""></a>{"url": "https://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/companhia-nacional-de-bailado-estreia-nova-peca-de-olga-roriz-para-celebrar-saramago_1407664","timestamp": "20160229051915"}</span>
+<span id="cb2-6"><a href=""></a>{"url": "https://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/competicao-internacional-de-danca-genee-da-royal-academy-pela-primeira-vez-em-portugal_1008253", "timestamp": "20170617061712"}</span>
+<span id="cb2-7"><a href=""></a>{"url": "https://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/composicao-a-toa-de-miguel-bastos-vence-concurso-internacional-da-povoa-de-varzim_1015347", "timestamp": "20170717231439"}</span>
+<span id="cb2-8"><a href=""></a>{"url": "https://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/compositor-joao-pedro-coimbra-apresenta-projeto-vibra-e-o-seu-album-de-estreia-em-junho_1201778", "timestamp": "20200130212156"}</span>
+<span id="cb2-9"><a href=""></a>{"url": "http://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/comunidade-chinesa-ja-festeja-o-ano-do-macaco_892519", "timestamp": "20160202050114"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="footer">
+  github.com/LupaDigital25/data-extraction/blob/main/newsUrls.ipynb
 </div>
 </section>
 <section id="data-extraction-and-mining" class="slide level2 justify">
@@ -485,44 +462,52 @@ Hugo Veríssimo
 <figure style="text-align: center;">
     <img src="diagram (2).png" alt="api requests" style="width: 100%; border: 2px solid #444; padding: 10px">
 </figure>
-<p>In order to make the process more robust and efficient…</p>
+<p>To support this pipeline, a combination of tools and techniques was used…</p>
+<div class="footer">
+  github.com/LupaDigital25/data-extraction/blob/main/dataExtraction.py
+</div>
 </section>
 <section id="data-extraction-and-mining-1" class="slide level2 justify">
 <h2>Data Extraction and Mining</h2>
-<p>the news were processed in chuncks of 10000 and checkpoints were saved??</p>
-<p>there chucks were processed:</p>
+<p>Archived news pages were processed in chunks of 10,000, with checkpoints saved for fault tolerance and resumability. Used:</p>
 <ul>
-<li><p>using <code>PySpark</code> to leverage parellism?</p></li>
-<li><p>usnig <code>BeautifulSoup</code> for web scrapping</p></li>
-<li><p>using <code>BloomFilter</code> to avoid duplicated news</p></li>
-<li><p>using a ML Model for document classification</p></li>
-<li><p>using <code>TextBlob</code> and <code>Vader</code> for sentiment analysis</p></li>
-<li><p>using <code>spacy</code> for lemmatization/tokenization and NER for topic extraction</p></li>
-<li><p>using probabilistic counters for topic counting</p></li>
+<li><p><code>PySpark</code> for parallelized processing across large datasets</p></li>
+<li><p><code>BeautifulSoup</code> for HTML parsing and web scraping</p></li>
+<li><p><code>BloomFilter</code> to efficiently detect and skip duplicate articles</p></li>
+<li><p>ML model to classify documents as news or non-news</p></li>
+<li><p><code>TextBlob</code> and <code>VADER</code> for sentiment analysis</p></li>
+<li><p><code>spaCy</code> for lemmatization, tokenization, and NER for topic extraction</p></li>
+<li><p>Probabilistic counters for scalable topic frequency estimation</p></li>
 </ul>
+<div class="footer">
+  github.com/LupaDigital25/data-extraction/blob/main/dataExtraction.py
+</div>
 </section>
 <section id="example-web-scraping" class="slide level2 justify">
 <h2>Example: Web Scraping</h2>
 <div class="columns">
-<div class="column" style="width:35%;">
+<div class="column" style="width:33%;">
 <figure style="text-align: center;">
   <a href="https://arquivo.pt/noFrame/replay/20171223212100/http://www.jornaldenegocios.pt/economia/europa/uniao-europeia/detalhe/grecia-fora-do-euro-em-breve-diz-proximo-de-trump-e-uma-possibilidade-repete-schuble" title="https://arquivo.pt/noFrame/replay/20171223212100/http://www.jornaldenegocios.pt/economia/europa/uniao-europeia/detalhe/grecia-fora-do-euro-em-breve-diz-proximo-de-trump-e-uma-possibilidade-repete-schuble" target="_blank">
     <img src="example_news.png" alt="example" style="width: 100%;">
   </a>
 </figure>
-</div><div class="column" style="width:65%;">
-<p>Cenário de saída da Grécia do euro está de regresso - União Europeia - Jornal de Negócios Cotações Mercados Análise Fundamental Técnica Portfolio Gestor Accões Favoritas Estatísticas Taxas de Juro Câmbios Subscrever assinar Login Registe-se \xa0Cenário de saída da Grécia do euro está de regresso União Europeia Cenário de saída da Grécia do euro está de regresso O provável novo embaixador dos EUA junto da União Europeia antecipa que a Grécia saia do euro dentro de um ano ou ano e meio. Já o ministro alemão das Finanças voltou a alertar para esse risco caso o Governo grego não aplique as reformas tal como acordadas a troco do terceiro resgate…</p>
+</div><div class="column" style="width:67%;">
+<p>Cenário de saída da Grécia do euro está de regresso - União Europeia - Jornal de Negócios Cotações Mercados Análise Fundamental Técnica Portfolio Gestor Accões Favoritas Estatísticas Taxas de Juro Câmbios Subscrever assinar Login Registe-se \xa0Cenário de saída da Grécia do euro está de regresso União Europeia Cenário de saída da Grécia do euro está de regresso O provável novo embaixador dos EUA junto da União Europeia antecipa que a Grécia saia do euro dentro de um ano ou ano e meio. Já o ministro alemão das Finanças voltou a alertar para esse risco caso o Governo grego não aplique as reformas tal como acordadas a…</p>
 </div>
+</div>
+<div class="footer">
+  github.com/LupaDigital25/data-extraction/blob/main/dataExtraction.py
 </div>
 </section>
 <section id="example-data-mining" class="slide level2 justify">
 <h2>Example: Data Mining</h2>
-<p>validate it (its is news and not repeated)</p>
-<p>get insights:</p>
-<p>publication date: 201712</p>
-<p>“source”:“Jornal de Negócios”</p>
-<p>sentiment perception: 0.6086897</p>
-<p>mentioned topics:“crise”:4,“governo”:16,“refugiado”:4,“período”:2,“implementar”:2,“êxito”:2,“resgate”:12,“Atenas”:9,“estatuto”:2,“a Grécia”:13,“Grécia”:18,“Mecanismo Europeu de Estabilidade”:2,“líder”:4,“Moody”:1,“Comissão Europeia”:2,“Saír”:1,“Primeira Página”:1,…</p>
+<figure style="text-align: center;">
+    <img src="data_mining.png" alt="data_mining" style="width: 100%;">
+</figure>
+<div class="footer">
+  github.com/LupaDigital25/data-extraction/blob/main/dataExtraction.py
+</div>
 </section>
 <section id="topic-standardization" class="slide level2 justify">
 <h2>Topic Standardization</h2>
@@ -537,84 +522,90 @@ Hugo Veríssimo
 |galp                     |
 |Galp                     |
 |O Banco de Portugal      |
-|Saúde   Covid-19   COVID |
+|Saúde   Covid-19         |
 +-------------------------+</code></pre>
 </div>
 </div>
 <p>Problems:</p>
 <ul>
-<li><p>different forms of writting (lower or uppercase)</p></li>
-<li><p>multiple topics per “topic”</p></li>
-<li><p>artigos definidos a preceder o nome</p></li>
+<li><p>Inconsistent casing (<code>galp</code> vs <code>Galp</code>)</p></li>
+<li><p>Leading definite articles (<code>O Banco de Portugal</code>)</p></li>
+<li><p>Multiple concepts grouped into a single topic (<code>Saúde   Covid-19</code>)</p></li>
 </ul>
+<div class="footer">
+  github.com/LupaDigital25/data-preprocessing/blob/main/dataPrep%20topicEDA.ipynb
+</div>
 </section>
 <section id="topic-standardization-1" class="slide level2 justify">
 <h2>Topic Standardization</h2>
-<p>Idea: Map “topic” to a list corresponding to it</p>
-<div class="sourceCode" id="cb3" data-code-line-numbers="1-5|8-23|26-39|42-58|61-64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># split topics with more then 2 spaces</span></span>
-<span id="cb3-2"><a href=""></a>df <span class="op">=</span> df.withColumn(</span>
-<span id="cb3-3"><a href=""></a>  <span class="st">"tokens"</span>,</span>
-<span id="cb3-4"><a href=""></a>  F.split(F.col(<span class="st">"value"</span>), <span class="st">" {2,}"</span>)</span>
-<span id="cb3-5"><a href=""></a>)</span>
-<span id="cb3-6"><a href=""></a></span>
-<span id="cb3-7"><a href=""></a></span>
-<span id="cb3-8"><a href=""></a><span class="co"># standartize topics using mapping</span></span>
-<span id="cb3-9"><a href=""></a><span class="co"># either using a portuguese dictionary (Natura Dictionary)</span></span>
-<span id="cb3-10"><a href=""></a>dicitionary <span class="op">=</span> spark.read.text(<span class="st">"wordlist_utf8.txt"</span>)</span>
-<span id="cb3-11"><a href=""></a>...</span>
-<span id="cb3-12"><a href=""></a>word_map_broadcast <span class="op">=</span> spark.sparkContext.broadcast(word_map)</span>
-<span id="cb3-13"><a href=""></a></span>
-<span id="cb3-14"><a href=""></a><span class="co"># or the most common representation ("galp" VS "Galp")</span></span>
-<span id="cb3-15"><a href=""></a>tokens_df <span class="op">=</span> tokens_df <span class="op">\</span></span>
-<span id="cb3-16"><a href=""></a>            .withColumn(<span class="st">"std_token"</span>, F.lower(F.col(<span class="st">"token"</span>))) <span class="op">\</span></span>
-<span id="cb3-17"><a href=""></a>            .groupBy(<span class="st">"std_token"</span>, <span class="st">"token"</span>) <span class="op">\</span></span>
-<span id="cb3-18"><a href=""></a>            .agg(F.count(<span class="st">"*"</span>).alias(<span class="st">"count"</span>)) <span class="op">\</span></span>
-<span id="cb3-19"><a href=""></a>            .withColumn(<span class="st">"rank"</span>, F.row_number().over(window_spec)) <span class="op">\</span></span>
-<span id="cb3-20"><a href=""></a>            .<span class="bu">filter</span>(F.col(<span class="st">"rank"</span>) <span class="op">==</span> <span class="dv">1</span>) <span class="op">\</span></span>
-<span id="cb3-21"><a href=""></a>            .orderBy(<span class="st">"std_token"</span>) <span class="op">\</span></span>
-<span id="cb3-22"><a href=""></a>            .select(<span class="st">"std_token"</span>, <span class="st">"token"</span>, <span class="st">"count"</span>)</span>
-<span id="cb3-23"><a href=""></a>...</span>
-<span id="cb3-24"><a href=""></a>       </span>
-<span id="cb3-25"><a href=""></a>            </span>
-<span id="cb3-26"><a href=""></a><span class="co"># split topics into possible subtopics</span></span>
-<span id="cb3-27"><a href=""></a><span class="kw">def</span> split_topics(token):</span>
-<span id="cb3-28"><a href=""></a>  <span class="co">"""</span></span>
-<span id="cb3-29"><a href=""></a><span class="co">  ex.:</span></span>
-<span id="cb3-30"><a href=""></a><span class="co">    Banco de Portugal -&gt; banco, Portugal, Banco de Portugal</span></span>
-<span id="cb3-31"><a href=""></a><span class="co">    Leonor Pereira -&gt; Leonor Pereira</span></span>
-<span id="cb3-32"><a href=""></a><span class="co">    laboratório -&gt; laboratório</span></span>
-<span id="cb3-33"><a href=""></a><span class="co">    EDP Gás -&gt; EDP, gás, EDP Gás</span></span>
-<span id="cb3-34"><a href=""></a><span class="co">  """</span></span>
-<span id="cb3-35"><a href=""></a>  ...</span>
-<span id="cb3-36"><a href=""></a></span>
-<span id="cb3-37"><a href=""></a>df <span class="op">=</span> df.rdd.flatMap(</span>
-<span id="cb3-38"><a href=""></a>    <span class="kw">lambda</span> row: [[row[<span class="dv">0</span>], split_topics(row[<span class="dv">1</span>])]]) <span class="op">\</span></span>
-<span id="cb3-39"><a href=""></a>    .toDF([<span class="st">"topic"</span>, <span class="st">"token"</span>]</span>
-<span id="cb3-40"><a href=""></a>    </span>
-<span id="cb3-41"><a href=""></a>    </span>
-<span id="cb3-42"><a href=""></a><span class="co"># remove invalid topics using regex</span></span>
-<span id="cb3-43"><a href=""></a><span class="kw">def</span> date_detection(token):</span>
-<span id="cb3-44"><a href=""></a>    months <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b(?:Jan|Fev|Abr|Mai|Jun|Jul|Ago|Set|Out|Nov|Dez)\b"</span>, token))</span>
-<span id="cb3-45"><a href=""></a>    march <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b(?:\d{1,2} Mar|Mar \d{2,4})\b"</span>, token))</span>
-<span id="cb3-46"><a href=""></a>    months2 <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"^(janeiro|fevereiro|março|abril|maio|junho|julho|agosto|setembro|outubro|novembro|dezembro)\b"</span>, token, flags<span class="op">=</span>re.IGNORECASE))</span>
-<span id="cb3-47"><a href=""></a>    dateD <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b(Janeiro|Fevereiro|Março|Abril|Maio|Junho|Julho|Agosto|Setembro|Outubro|Novembro|Dezembro)[ ]?\d{2,4}\b"</span>, token, flags<span class="op">=</span>re.IGNORECASE))</span>
-<span id="cb3-48"><a href=""></a>    dateY <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b\d{1,2}(?:\s+de)?\s+(janeiro|fevereiro|março|abril|maio|junho|julho|agosto|setembro|outubro|novembro|dezembro)\b"</span>, token, flags<span class="op">=</span>re.IGNORECASE))</span>
-<span id="cb3-49"><a href=""></a>    days <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b(segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo)\b"</span>, token, flags<span class="op">=</span>re.IGNORECASE))</span>
-<span id="cb3-50"><a href=""></a>    hours <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b\d{1,2}:\d</span><span class="sc">{2}</span><span class="vs">\b"</span>, token)) <span class="kw">or</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b\d{1,2}h\d</span><span class="sc">{2}</span><span class="vs">\b"</span>, token))</span>
-<span id="cb3-51"><a href=""></a>    minutes <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b\d{1,2}m\d</span><span class="sc">{2}</span><span class="vs">\b"</span>, token))</span>
-<span id="cb3-52"><a href=""></a>    <span class="cf">return</span> months <span class="kw">or</span> march <span class="kw">or</span> months2 <span class="kw">or</span> dateD <span class="kw">or</span> dateY <span class="kw">or</span> days <span class="kw">or</span> hours <span class="kw">or</span> minutes</span>
-<span id="cb3-53"><a href=""></a>    </span>
-<span id="cb3-54"><a href=""></a><span class="kw">def</span> invalid_tokens_detection(token):</span>
-<span id="cb3-55"><a href=""></a>    <span class="cf">return</span> date_detection(token) <span class="kw">or</span> ...</span>
-<span id="cb3-56"><a href=""></a></span>
-<span id="cb3-57"><a href=""></a>df <span class="op">=</span> df.rdd.flatMap(</span>
-<span id="cb3-58"><a href=""></a>    <span class="kw">lambda</span> row: [(row[<span class="dv">0</span>], [token <span class="cf">for</span> token <span class="kw">in</span> row[<span class="dv">1</span>] <span class="cf">if</span> <span class="kw">not</span> invalid_tokens_detection(token)])])</span>
-<span id="cb3-59"><a href=""></a>  </span>
-<span id="cb3-60"><a href=""></a>    </span>
-<span id="cb3-61"><a href=""></a><span class="co"># among other transformations</span></span>
-<span id="cb3-62"><a href=""></a><span class="co"># ex.: duplicates, invalid characters, ...</span></span>
-<span id="cb3-63"><a href=""></a></span>
-<span id="cb3-64"><a href=""></a>df.write.mode(<span class="st">"overwrite"</span>).json(<span class="st">"topics.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Idea: Map each topic to a list of terms for normalization</p>
+<div class="sourceCode" id="cb4" data-code-line-numbers="1-5|8-23|26-39|42-58|61-64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="co"># split topics with more than 2 spaces</span></span>
+<span id="cb4-2"><a href=""></a>df <span class="op">=</span> df.withColumn(</span>
+<span id="cb4-3"><a href=""></a>  <span class="st">"tokens"</span>,</span>
+<span id="cb4-4"><a href=""></a>  F.split(F.col(<span class="st">"value"</span>), <span class="st">" {2,}"</span>)</span>
+<span id="cb4-5"><a href=""></a>)</span>
+<span id="cb4-6"><a href=""></a></span>
+<span id="cb4-7"><a href=""></a></span>
+<span id="cb4-8"><a href=""></a><span class="co"># standardize topics using mapping</span></span>
+<span id="cb4-9"><a href=""></a><span class="co"># either using a portuguese dictionary (Natura Dictionary)</span></span>
+<span id="cb4-10"><a href=""></a>dicitionary <span class="op">=</span> spark.read.text(<span class="st">"wordlist_utf8.txt"</span>)</span>
+<span id="cb4-11"><a href=""></a>...</span>
+<span id="cb4-12"><a href=""></a>word_map_broadcast <span class="op">=</span> spark.sparkContext.broadcast(word_map)</span>
+<span id="cb4-13"><a href=""></a></span>
+<span id="cb4-14"><a href=""></a><span class="co"># or the most common representation ("galp" VS "Galp")</span></span>
+<span id="cb4-15"><a href=""></a>tokens_df <span class="op">=</span> tokens_df <span class="op">\</span></span>
+<span id="cb4-16"><a href=""></a>            .withColumn(<span class="st">"std_token"</span>, F.lower(F.col(<span class="st">"token"</span>))) <span class="op">\</span></span>
+<span id="cb4-17"><a href=""></a>            .groupBy(<span class="st">"std_token"</span>, <span class="st">"token"</span>) <span class="op">\</span></span>
+<span id="cb4-18"><a href=""></a>            .agg(F.count(<span class="st">"*"</span>).alias(<span class="st">"count"</span>)) <span class="op">\</span></span>
+<span id="cb4-19"><a href=""></a>            .withColumn(<span class="st">"rank"</span>, F.row_number().over(window_spec)) <span class="op">\</span></span>
+<span id="cb4-20"><a href=""></a>            .<span class="bu">filter</span>(F.col(<span class="st">"rank"</span>) <span class="op">==</span> <span class="dv">1</span>) <span class="op">\</span></span>
+<span id="cb4-21"><a href=""></a>            .orderBy(<span class="st">"std_token"</span>) <span class="op">\</span></span>
+<span id="cb4-22"><a href=""></a>            .select(<span class="st">"std_token"</span>, <span class="st">"token"</span>, <span class="st">"count"</span>)</span>
+<span id="cb4-23"><a href=""></a>...</span>
+<span id="cb4-24"><a href=""></a>       </span>
+<span id="cb4-25"><a href=""></a>            </span>
+<span id="cb4-26"><a href=""></a><span class="co"># split topics into possible subtopics</span></span>
+<span id="cb4-27"><a href=""></a><span class="kw">def</span> split_topics(token):</span>
+<span id="cb4-28"><a href=""></a>  <span class="co">"""</span></span>
+<span id="cb4-29"><a href=""></a><span class="co">  ex.:</span></span>
+<span id="cb4-30"><a href=""></a><span class="co">    Banco de Portugal -&gt; banco, Portugal, Banco de Portugal</span></span>
+<span id="cb4-31"><a href=""></a><span class="co">    Leonor Pereira -&gt; Leonor Pereira</span></span>
+<span id="cb4-32"><a href=""></a><span class="co">    laboratório -&gt; laboratório</span></span>
+<span id="cb4-33"><a href=""></a><span class="co">    EDP Gás -&gt; EDP, gás, EDP Gás</span></span>
+<span id="cb4-34"><a href=""></a><span class="co">  """</span></span>
+<span id="cb4-35"><a href=""></a>  ...</span>
+<span id="cb4-36"><a href=""></a></span>
+<span id="cb4-37"><a href=""></a>df <span class="op">=</span> df.rdd.flatMap(</span>
+<span id="cb4-38"><a href=""></a>    <span class="kw">lambda</span> row: [[row[<span class="dv">0</span>], split_topics(row[<span class="dv">1</span>])]]) <span class="op">\</span></span>
+<span id="cb4-39"><a href=""></a>    .toDF([<span class="st">"topic"</span>, <span class="st">"token"</span>])</span>
+<span id="cb4-40"><a href=""></a>    </span>
+<span id="cb4-41"><a href=""></a>    </span>
+<span id="cb4-42"><a href=""></a><span class="co"># remove invalid topics using regex</span></span>
+<span id="cb4-43"><a href=""></a><span class="kw">def</span> date_detection(token):</span>
+<span id="cb4-44"><a href=""></a>    months <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b(?:Jan|Fev|Abr|Mai|Jun|Jul|Ago|Set|Out|Nov|Dez)\b"</span>, token))</span>
+<span id="cb4-45"><a href=""></a>    march <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b(?:\d{1,2} Mar|Mar \d{2,4})\b"</span>, token))</span>
+<span id="cb4-46"><a href=""></a>    months2 <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"^(janeiro|fevereiro|março|abril|maio|junho|julho|agosto|setembro|outubro|novembro|dezembro)\b"</span>, token, flags<span class="op">=</span>re.IGNORECASE))</span>
+<span id="cb4-47"><a href=""></a>    dateD <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b(Janeiro|Fevereiro|Março|Abril|Maio|Junho|Julho|Agosto|Setembro|Outubro|Novembro|Dezembro)[ ]?\d{2,4}\b"</span>, token, flags<span class="op">=</span>re.IGNORECASE))</span>
+<span id="cb4-48"><a href=""></a>    dateY <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b\d{1,2}(?:\s+de)?\s+(janeiro|fevereiro|março|abril|maio|junho|julho|agosto|setembro|outubro|novembro|dezembro)\b"</span>, token, flags<span class="op">=</span>re.IGNORECASE))</span>
+<span id="cb4-49"><a href=""></a>    days <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b(segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo)\b"</span>, token, flags<span class="op">=</span>re.IGNORECASE))</span>
+<span id="cb4-50"><a href=""></a>    hours <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b\d{1,2}:\d</span><span class="sc">{2}</span><span class="vs">\b"</span>, token)) <span class="kw">or</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b\d{1,2}h\d</span><span class="sc">{2}</span><span class="vs">\b"</span>, token))</span>
+<span id="cb4-51"><a href=""></a>    minutes <span class="op">=</span> <span class="bu">bool</span>(re.search(<span class="vs">r"\b\d{1,2}m\d</span><span class="sc">{2}</span><span class="vs">\b"</span>, token))</span>
+<span id="cb4-52"><a href=""></a>    <span class="cf">return</span> months <span class="kw">or</span> march <span class="kw">or</span> months2 <span class="kw">or</span> dateD <span class="kw">or</span> dateY <span class="kw">or</span> days <span class="kw">or</span> hours <span class="kw">or</span> minutes</span>
+<span id="cb4-53"><a href=""></a>    </span>
+<span id="cb4-54"><a href=""></a><span class="kw">def</span> invalid_tokens_detection(token):</span>
+<span id="cb4-55"><a href=""></a>    <span class="cf">return</span> date_detection(token) <span class="kw">or</span> ...</span>
+<span id="cb4-56"><a href=""></a></span>
+<span id="cb4-57"><a href=""></a>df <span class="op">=</span> df.rdd.flatMap(</span>
+<span id="cb4-58"><a href=""></a>    <span class="kw">lambda</span> row: [(row[<span class="dv">0</span>], [token <span class="cf">for</span> token <span class="kw">in</span> row[<span class="dv">1</span>] <span class="cf">if</span> <span class="kw">not</span> invalid_tokens_detection(token)])])</span>
+<span id="cb4-59"><a href=""></a>  </span>
+<span id="cb4-60"><a href=""></a>    </span>
+<span id="cb4-61"><a href=""></a><span class="co"># among other transformations</span></span>
+<span id="cb4-62"><a href=""></a><span class="co"># e.g.: invalid characters, ...</span></span>
+<span id="cb4-63"><a href=""></a></span>
+<span id="cb4-64"><a href=""></a>df.write.mode(<span class="st">"overwrite"</span>).json(<span class="st">"topics.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="footer">
+  github.com/LupaDigital25/data-preprocessing/blob/main/dataPrep%20topicPrep.ipynb
+</div>
 </section>
 <section id="topic-standardization-2" class="slide level2 justify">
 <h2>Topic Standardization</h2>
@@ -633,7 +624,7 @@ Hugo Veríssimo
 </div>
 </div>
 <p><span class="math inline">\(\ \)</span></p>
-<p>Problems:</p>
+<p>New issues introduced during processing:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>|António Costa            |[António, costa, António Costa]                   |
@@ -643,21 +634,17 @@ Hugo Veríssimo
 +-------------------------+--------------------------------------------------+</code></pre>
 </div>
 </div>
+<div class="footer">
+  github.com/LupaDigital25/data-preprocessing/blob/main/dataPrep%20topicPrep.ipynb
+</div>
 </section>
 <section id="data-post-processing" class="slide level2 justify">
 <h2>Data Post-processing</h2>
 <ul>
-<li><p>Make sure there were no duplicated links</p></li>
-<li><p>Corrected news distrubtion to be more “normal”</p></li>
-<li><p>Map the new topics to replace the old ones</p></li>
+<li><p>Remove duplicated links</p></li>
+<li><p>Replace original topics with the cleaned versions</p></li>
+<li><p>Generate a <em>significant token</em> column: lemmatized, lowercased, accent-free, and with &gt;4 mentions (for topic-based querying)</p></li>
 </ul>
-<figure style="text-align: center;">
-    <img src="diagram (3).png" alt="api requests" style="width: 100%; border: 2px solid #444; padding: 10px">
-</figure>
-</section>
-<section id="data-post-processing-1" class="slide level2 justify">
-<h2>Data Post-processing</h2>
-<p>also created a column of token list, lemmatized (no accents, no upper, nothing) and significant (more then ex.: &gt;5 mentions in the new) for easy search later on</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>root
@@ -675,7 +662,18 @@ Hugo Veríssimo
  </code></pre>
 </div>
 </div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>df.repartition(<span class="dv">8</span>).write.mode(<span class="st">"overwrite"</span>).parquet(<span class="st">"data/news_processed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="footer">
+ github.com/LupaDigital25/data-preprocessing/blob/main/dataPrep.ipynb
+</div>
+</section>
+<section id="data-post-processing-1" class="slide level2 justify">
+<h2>Data Post-processing</h2>
+<figure style="text-align: center;">
+    <img src="diagram (3).png" alt="api requests" style="width: 100%; border: 2px solid #444; padding: 10px">
+</figure>
+<div class="footer">
+ github.com/LupaDigital25/data-preprocessing/blob/main/dataEDA.ipynb
+</div>
 </section></section>
 <section>
 <section id="results" class="title-slide slide level1 center">
@@ -694,23 +692,26 @@ Hugo Veríssimo
     <img src="results_dataset.png" alt="dataset screenshot" style="width: 85%;">
 </figure>
 <div style="text-align: center;">
-<p>available at <a href="https://doi.org/10.5281/zenodo.15231163">10.5281/zenodo.15231163</a></p>
+<p>Available at <a href="https://doi.org/10.5281/zenodo.15231163">10.5281/zenodo.15231163</a></p>
 </div>
 </section>
-<section id="web-application" class="slide level2">
+<section id="web-application" class="slide level2 justify">
 <h2>Web Application</h2>
 <figure style="text-align: center;">
     <img src="results_app.png" alt="app screenshot" style="width: 85%;">
 </figure>
 <div style="text-align: center;">
-<p>available at <a href="https://lupa-digital.pt">lupa-digital.pt</a></p>
+<p>Available at <a href="https://lupa-digital.pt">lupa-digital.pt</a></p>
 </div>
 </section>
-<section id="web-application---workflow" class="slide level2">
+<section id="web-application---workflow" class="slide level2 justify">
 <h2>Web Application - Workflow</h2>
 <figure style="text-align: center;">
     <img src="app_workflow.png" alt="app workflow" style="width: 100%;">
 </figure>
+<div class="footer">
+ github.com/LupaDigital25/app-docker/blob/main/app/app.py
+</div>
 <div class="quarto-auto-generated-content">
 <p><img src="ua.png" class="slide-logo"></p>
 <div class="footer footer-default">

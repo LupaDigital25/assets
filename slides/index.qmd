@@ -25,14 +25,6 @@ library(xtable)
 library(reticulate)
 ```
 
-## NOTAS
-
-meter justify
-
-meter footer com o link para pasta ou ficheiro
-
-rever esteticas todas, n estou a ligar a isso agora, so conteudo
-
 ## Lupa Digital {.justify}
 
 Lupa Digital is an initiative that applies AI and data mining to large-scale journalistic content, exploring the evolving news landscape through the lens of metajournalism.
@@ -55,47 +47,42 @@ Lupa Digital is an initiative that applies AI and data mining to large-scale jou
 </figure>
 ```
 
-## Example: API Result {.justify}
+```{=html}
+<div class="footer">
+  github.com/LupaDigital25/data-extraction/blob/main/newsUrls.ipynb
+</div>
+```
 
-From a source such as [www.rtp.pt](https://www.rtp.pt), retrieve archived news urls:
+## Example: API Request {.justify}
 
-```{txt}
-timestamp,url
-20180322091927,https://www.rtp.pt/noticias/cultura/viseu-veste-fachadas-de-igrejas-com-desenhos-de-luz-para-celebrar-a-pascoa_n1065023
-20220412001133,https://www.rtp.pt/noticias/cultura/visita-guiada-conta-historias-para-alem-do-que-muita-gente-sabe-em-coimbra_n1397856
-20150724061305,http://www.rtp.pt/noticias/cultura/visita-guiada-pelas-obras-de-rui-sanches_v846013
-20150827180844,http://www.rtp.pt/noticias/cultura/visitantes-da-festa-do-avante-vao-ser-recebidos-com-musica-de-orquestra-sinfonica_a854349
-20190710182452,https://www.rtp.pt/noticias/cultura/visitantes-do-museu-dos-coches-sao-estrangeiros-com-mais-de-40-anos_n1159600
-20200914194159,https://www.rtp.pt/noticias/cultura/visitantes-do-museu-e-parque-arqueologico-do-coa-duplicaram-em-agosto-deste-ano_n1258927
-20200421030337,https://www.rtp.pt/noticias/cultura/visitar-museus-sem-sair-de-casa-em-dias-de-pandemia_v1221917
-20150812054702,http://www.rtp.pt/noticias/cultura/visitas-a-monumentos-museus-e-palacios-rendem-cerca-de-um-milhao-de-euros_v850595
-20160416215125,http://www.rtp.pt/noticias/cultura/visitas-as-galerias-romanas-ja-estao-esgotadas_v911728
-20170327181559,https://www.rtp.pt/noticias/cultura/visitas-gratuitas-ao-teatro-nacional-sao-joao_v991499
-20151007081054,http://www.rtp.pt/noticias/cultura/visitas-guiadas-aos-pacos-do-concelho-contam-novas-historias-da-lisboa-antiga_v863875
-20190831185917,http://www.rtp.pt/noticias/cultura/visitas-guiadas-e-gratuitas-no-coliseu-do-porto_v970454
-20200607225302,https://www.rtp.pt/noticias/cultura/visitas-guiadas-encenadas-regressam-a-aldeia-historica-de-castelo-rodrigo_n1234927
-20220926183818,https://www.rtp.pt/noticias/cultura/visitas-virtuais-revelam-espacos-emblematicos-da-universidade-de-coimbra_n1435642
-20170308191800,https://www.rtp.pt/noticias/cultura/visoes-de-alhambra-em-exposicao-no-museu-de-serralves_v987510
-20190831185922,http://www.rtp.pt/noticias/cultura/visoes-de-julio-pomar-e-vitor-pomar-numa-exposicao-conjunta-em-lisboa_n930053
-20190906021344,http://www.rtp.pt/noticias/cultura/visoes-de-julio-pomar-e-vitor-pomar-numa-exposicao-conjunta-em-lisboa_n930053
-20191201214933,https://www.rtp.pt/noticias/cultura/vitalina-varela-de-pedro-costa-vence-premio-dos-caminhos-do-cinema-portugues_a1189245
-20210129200211,https://www.rtp.pt/noticias/cultura/vitalina-varela-e-o-filme-portugues-na-corrida-aos-oscares_v1293573
-20171114075240,https://www.rtp.pt/noticias/cultura/vitimas-de-assedio-tem-momento-muito-poderoso-para-dizer-basta-diz-atriz-rosario-dawson_n1039262
-20171206095156,https://www.rtp.pt/noticias/cultura/ze-pedro-marcelo-quer-homenagem-inesquecivel-e-com-muito-publico_v1043993
-20180721172036,https://www.rtp.pt/noticias/cultura/ze-pedro-recordado-com-espetaculo-de-coisas-bonitas_n1088575
-20200805235517,https://www.rtp.pt/noticias/cultura/ze-pedro-rock-n-roll-documentario-sobre-guitarrista-dos-xutos-pontapes_a1248556
-20200731182132,https://www.rtp.pt/noticias/cultura/ze-pedro-rock-n-roll-ja-esta-nos-cinemas_v1248844
-20200806052707,https://www.rtp.pt/noticias/cultura/ze-pedro-rock-n-roll-realizador-diogo-varela-silva-falou-com-a-antena-1_a1248691
-20201123234614,https://www.rtp.pt/noticias/cultura/ze-pedro-rock-nroll-vence-premio-de-melhor-longa-metragem-em-festival-nos-eua_n1277663
-20171204002422,http://www.rtp.pt/noticias/cultura/ze-pedro-subiu-pela-ultima-vez-ao-palco-ha-menos-de-um-mes_v1043773
-20170223040812,https://www.rtp.pt/noticias/cultura/zeca-afonso-companheiros-confessam-saudade-de-um-homem-generoso-e-valente_n984331
-20170227001126,http://www.rtp.pt/noticias/cultura/zeca-afonso-e-as-palavras-que-quanto-mais-se-apartam-mais-se-ouve-o-seu-grito_v984949
-20170227001310,http://www.rtp.pt/noticias/cultura/zeca-afonso-morreu-ha-30-anos_v984929
-20240324193757,https://www.rtp.pt/noticias/cultura/zeca-afonso-o-esquerdista-apupado-em-grandola-que-ia-a-festa-do-avante_n984329
-20240324193653,https://www.rtp.pt/noticias/cultura/zeca-afonso-um-artista-que-deixou-sementes-para-as-geracoes-seguintes_n984328
-20170223040839,https://www.rtp.pt/noticias/cultura/zeca-afonso-um-mar-de-gente-e-de-cravos-vermelhos-marcou-funeral-ha-30-anos_n984332
-20180516054359,https://www.rtp.pt/noticias/cultura/zonas-de-interesse-turistico-de-castelo-branco-cobertas-com-rede-wi-fi-gratuita_n1075883
-20200413183202,https://www.rtp.pt/noticias/cultura/zoo-de-lourosa-continua-a-alimentar-500-aves-e-a-manter-80-habitats-sem-bilheteira_n1219867
+Sample query:
+
+```plaintext
+https://arquivo.pt/wayback/cdx \
+?url=www.rtp.pt/noticias/cultura* \
+&output=json \
+&filter==mime:text/html \
+&fields=url,timestamp
+```
+
+Sample output:
+
+```plaintext
+{"url": "https://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/companhia-nacional-abre-temporada-com-obra-inspirada-na-opera-de-henry-purcell_1033406", "timestamp": "20171016065533"}
+{"url": "http://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/companhia-nacional-de-bailado-abre-temporada-com-peca-pedro-e-ines_865965", "timestamp": "20151014181241"}
+{"url": "http://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/companhia-nacional-de-bailado-apresenta-quatro-pecas-de-coreografos-do-seculo-xx_893880", "timestamp": "20160206045955"}
+{"url": "https://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/companhia-nacional-de-bailado-danca-com-akram-khan_982957", "timestamp": "20170214215117"}
+{"url": "https://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/companhia-nacional-de-bailado-estreia-nova-peca-de-olga-roriz-para-celebrar-saramago_1407664","timestamp": "20160229051915"}
+{"url": "https://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/competicao-internacional-de-danca-genee-da-royal-academy-pela-primeira-vez-em-portugal_1008253", "timestamp": "20170617061712"}
+{"url": "https://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/composicao-a-toa-de-miguel-bastos-vence-concurso-internacional-da-povoa-de-varzim_1015347", "timestamp": "20170717231439"}
+{"url": "https://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/compositor-joao-pedro-coimbra-apresenta-projeto-vibra-e-o-seu-album-de-estreia-em-junho_1201778", "timestamp": "20200130212156"}
+{"url": "http://www.rtp.pt/noticias/cultura/noticias/cultura/artigos/comunidade-chinesa-ja-festeja-o-ano-do-macaco_892519", "timestamp": "20160202050114"}
+```
+
+```{=html}
+<div class="footer">
+  github.com/LupaDigital25/data-extraction/blob/main/newsUrls.ipynb
+</div>
 ```
 
 ## Data Extraction and Mining {.justify}
@@ -106,32 +93,42 @@ timestamp,url
 </figure>
 ```
 
-In order to make the process more robust and efficient...
+To support this pipeline, a combination of tools and techniques was used…
+
+```{=html}
+<div class="footer">
+  github.com/LupaDigital25/data-extraction/blob/main/dataExtraction.py
+</div>
+```
 
 ## Data Extraction and Mining {.justify}
 
-the news were processed in chuncks of 10000 and checkpoints were saved??
+Archived news pages were processed in chunks of 10,000, with checkpoints saved for fault tolerance and resumability. Used:
 
-there chucks were processed:
+- `PySpark` for parallelized processing across large datasets  
 
-- using `PySpark` to leverage parellism?
+- `BeautifulSoup` for HTML parsing and web scraping  
 
-- usnig `BeautifulSoup` for web scrapping
+- `BloomFilter` to efficiently detect and skip duplicate articles  
 
-- using `BloomFilter` to avoid duplicated news
+- ML model to classify documents as news or non-news 
 
-- using a ML Model for document classification
+- `TextBlob` and `VADER` for sentiment analysis 
 
-- using `TextBlob` and `Vader` for sentiment analysis
+- `spaCy` for lemmatization, tokenization, and NER for topic extraction
 
-- using `spacy` for lemmatization/tokenization and NER for topic extraction
+- Probabilistic counters for scalable topic frequency estimation
 
-- using probabilistic counters for topic counting
+```{=html}
+<div class="footer">
+  github.com/LupaDigital25/data-extraction/blob/main/dataExtraction.py
+</div>
+```
 
 ## Example: Web Scraping {.justify}
 
 :::: {.columns}
-::: {.column width="35%"}
+::: {.column width="33%"}
 ```{=html}
 <figure style="text-align: center;">
   <a href="https://arquivo.pt/noFrame/replay/20171223212100/http://www.jornaldenegocios.pt/economia/europa/uniao-europeia/detalhe/grecia-fora-do-euro-em-breve-diz-proximo-de-trump-e-uma-possibilidade-repete-schuble"
@@ -143,24 +140,30 @@ there chucks were processed:
 ```
 :::
 
-::: {.column width="65%"}
-Cenário de saída da Grécia do euro está de regresso - União Europeia - Jornal de Negócios Cotações Mercados Análise Fundamental Técnica Portfolio Gestor Accões Favoritas Estatísticas Taxas de Juro Câmbios Subscrever assinar Login Registe-se \\xa0Cenário de saída da Grécia do euro está de regresso União Europeia Cenário de saída da Grécia do euro está de regresso O provável novo embaixador dos EUA junto da União Europeia antecipa que a Grécia saia do euro dentro de um ano ou ano e meio. Já o ministro alemão das Finanças voltou a alertar para esse risco caso o Governo grego não aplique as reformas tal como acordadas a troco do terceiro resgate...
+::: {.column width="67%"}
+Cenário de saída da Grécia do euro está de regresso - União Europeia - Jornal de Negócios Cotações Mercados Análise Fundamental Técnica Portfolio Gestor Accões Favoritas Estatísticas Taxas de Juro Câmbios Subscrever assinar Login Registe-se \\xa0Cenário de saída da Grécia do euro está de regresso União Europeia Cenário de saída da Grécia do euro está de regresso O provável novo embaixador dos EUA junto da União Europeia antecipa que a Grécia saia do euro dentro de um ano ou ano e meio. Já o ministro alemão das Finanças voltou a alertar para esse risco caso o Governo grego não aplique as reformas tal como acordadas a...
 :::
 ::::
 
+```{=html}
+<div class="footer">
+  github.com/LupaDigital25/data-extraction/blob/main/dataExtraction.py
+</div>
+```
+
 ## Example: Data Mining {.justify}
 
-validate it (its is news and not repeated)
+```{=html}
+<figure style="text-align: center;">
+    <img src="data_mining.png" alt="data_mining" style="width: 100%;">
+</figure>
+```
 
-get insights:
-
-publication date: 201712
-
-"source":"Jornal de Negócios"
-
-sentiment perception: 0.6086897
-
-mentioned topics:"crise":4,"governo":16,"refugiado":4,"período":2,"implementar":2,"êxito":2,"resgate":12,"Atenas":9,"estatuto":2,"a Grécia":13,"Grécia":18,"Mecanismo Europeu de Estabilidade":2,"líder":4,"Moody":1,"Comissão Europeia":2,"Saír":1,"Primeira Página":1,...
+```{=html}
+<div class="footer">
+  github.com/LupaDigital25/data-extraction/blob/main/dataExtraction.py
+</div>
+```
 
 ## Topic Standardization {.justify}
 
@@ -174,31 +177,37 @@ print("""Number of unique topics:  1457234
 |galp                     |
 |Galp                     |
 |O Banco de Portugal      |
-|Saúde   Covid-19   COVID |
+|Saúde   Covid-19         |
 +-------------------------+""")
 ```
 
 Problems:
 
-- different forms of writting (lower or uppercase)
+- Inconsistent casing (`galp` vs `Galp`)
 
-- multiple topics per "topic"
+- Leading definite articles (`O Banco de Portugal`)
 
-- artigos definidos a preceder o nome
+- Multiple concepts grouped into a single topic (`Saúde   Covid-19`)
+
+```{=html}
+<div class="footer">
+  github.com/LupaDigital25/data-preprocessing/blob/main/dataPrep%20topicEDA.ipynb
+</div>
+```
 
 ## Topic Standardization {.justify}
 
-Idea: Map "topic" to a list corresponding to it
+Idea: Map each topic to a list of terms for normalization
 
 ```{.python code-line-numbers="1-5|8-23|26-39|42-58|61-64"}
-# split topics with more then 2 spaces
+# split topics with more than 2 spaces
 df = df.withColumn(
   "tokens",
   F.split(F.col("value"), " {2,}")
 )
 
 
-# standartize topics using mapping
+# standardize topics using mapping
 # either using a portuguese dictionary (Natura Dictionary)
 dicitionary = spark.read.text("wordlist_utf8.txt")
 ...
@@ -229,7 +238,7 @@ def split_topics(token):
 
 df = df.rdd.flatMap(
     lambda row: [[row[0], split_topics(row[1])]]) \
-    .toDF(["topic", "token"]
+    .toDF(["topic", "token"])
     
     
 # remove invalid topics using regex
@@ -252,9 +261,15 @@ df = df.rdd.flatMap(
   
     
 # among other transformations
-# ex.: duplicates, invalid characters, ...
+# e.g.: invalid characters, ...
 
 df.write.mode("overwrite").json("topics.json")
+```
+
+```{=html}
+<div class="footer">
+  github.com/LupaDigital25/data-preprocessing/blob/main/dataPrep%20topicPrep.ipynb
+</div>
 ```
 
 
@@ -275,7 +290,7 @@ print("""+-------------------------+--------------------------------------------
 
 $\ $
 
-Problems:
+New issues introduced during processing:
 
 ```{python, echo=FALSE}
 print("""|António Costa            |[António, costa, António Costa]                   |
@@ -285,23 +300,19 @@ print("""|António Costa            |[António, costa, António Costa]          
 +-------------------------+--------------------------------------------------+""")
 ```
 
-## Data Post-processing {.justify}
-
-- Make sure there were no duplicated links
-
-- Corrected news distrubtion to be more "normal"
-
-- Map the new topics to replace the old ones
-
 ```{=html}
-<figure style="text-align: center;">
-    <img src="diagram (3).png" alt="api requests" style="width: 100%; border: 2px solid #444; padding: 10px">
-</figure>
+<div class="footer">
+  github.com/LupaDigital25/data-preprocessing/blob/main/dataPrep%20topicPrep.ipynb
+</div>
 ```
 
 ## Data Post-processing {.justify}
 
-also created a column of token list, lemmatized (no accents, no upper, nothing) and significant (more then ex.: >5 mentions in the new) for easy search later on
+- Remove duplicated links
+
+- Replace original topics with the cleaned versions
+
+- Generate a *significant token* column: lemmatized, lowercased, accent-free, and with >4 mentions (for topic-based querying)
 
 ```{python, echo=FALSE}
 print("""root
@@ -319,8 +330,24 @@ print("""root
  """)
 ```
 
-```{.python}
-df.repartition(8).write.mode("overwrite").parquet("data/news_processed")
+```{=html}
+<div class="footer">
+ github.com/LupaDigital25/data-preprocessing/blob/main/dataPrep.ipynb
+</div>
+```
+
+## Data Post-processing {.justify}
+
+```{=html}
+<figure style="text-align: center;">
+    <img src="diagram (3).png" alt="api requests" style="width: 100%; border: 2px solid #444; padding: 10px">
+</figure>
+```
+
+```{=html}
+<div class="footer">
+ github.com/LupaDigital25/data-preprocessing/blob/main/dataEDA.ipynb
+</div>
 ```
 
 # Results
@@ -342,10 +369,10 @@ df.repartition(8).write.mode("overwrite").parquet("data/news_processed")
 ```
 
 ::: {style="text-align: center;"}
-available at [10.5281/zenodo.15231163](https://doi.org/10.5281/zenodo.15231163)
+Available at [10.5281/zenodo.15231163](https://doi.org/10.5281/zenodo.15231163)
 :::
 
-## Web Application
+## Web Application {.justify}
 
 ```{=html}
 <figure style="text-align: center;">
@@ -354,11 +381,10 @@ available at [10.5281/zenodo.15231163](https://doi.org/10.5281/zenodo.15231163)
 ```
 
 ::: {style="text-align: center;"}
-available at [lupa-digital.pt](https://lupa-digital.pt)
+Available at [lupa-digital.pt](https://lupa-digital.pt)
 :::
 
-
-## Web Application - Workflow
+## Web Application - Workflow {.justify}
 
 ```{=html}
 <figure style="text-align: center;">
@@ -366,5 +392,9 @@ available at [lupa-digital.pt](https://lupa-digital.pt)
 </figure>
 ```
 
-
+```{=html}
+<div class="footer">
+ github.com/LupaDigital25/app-docker/blob/main/app/app.py
+</div>
+```
 
